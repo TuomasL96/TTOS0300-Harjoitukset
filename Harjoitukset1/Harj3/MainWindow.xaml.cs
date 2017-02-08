@@ -26,10 +26,19 @@ namespace Harj3
         }
         private void calculateButton_Click(object sender, RoutedEventArgs e)
         {
-            double windowWidth = double.Parse(widthInput.Text);
-            double windowHeight = double.Parse(heightInput.Text);
-            double karmiWidth = double.Parse(karmiWidthInput.Text);
-            outputIPA.Text = (windowHeight * windowWidth).ToString();
+            try
+            {
+                double windowWidth = double.Parse(widthInput.Text);
+                double windowHeight = double.Parse(heightInput.Text);
+                double karmiWidth = double.Parse(karmiWidthInput.Text);
+                outputIPA.Text = ((windowHeight * windowWidth) / 10).ToString() + " cm^2";
+                outputLPA.Text = (((windowHeight - (karmiWidth * 2)) * (windowWidth - (karmiWidth * 2))) / 10).ToString() + " cm^2";
+                outputKarmi.Text = (((2 * windowHeight) + (2 * windowWidth)) / 10).ToString() + " cm";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
