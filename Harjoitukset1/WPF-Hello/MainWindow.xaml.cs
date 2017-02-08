@@ -26,20 +26,26 @@ namespace WPF_Hello
             InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void btnHello_Click(object sender, RoutedEventArgs e)
         {
             timesPressed++;
-            textBlock.Text = "Hello " + textBox.Text;
-            MessageBox.Show("Terve " + textBox.Text, "Tuomas'es Juttu");
-            textBlock1.Text = timesPressed.ToString();
+            txbHello.Text = "Hello " + txtName.Text;
+            MessageBox.Show("Terve " + txtName.Text, "Tuomas'es Juttu");
+            txbCount.Text = timesPressed.ToString();
+            txbMessage.Text = "painoin buttonia tnbHello";
         }
 
-        private void button_Copy1_Click(object sender, RoutedEventArgs e)
+        private void btnAbout_Click(object sender, RoutedEventArgs e)
         {
             //kutsutaan näkyviin about- ikkuna
             About about = new About();
             //huom ikkuna voi olla modaalinen(täytyy sulkea ennen muihin ikkonoihin palaamista) tai tavallinen
             about.ShowDialog();
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
