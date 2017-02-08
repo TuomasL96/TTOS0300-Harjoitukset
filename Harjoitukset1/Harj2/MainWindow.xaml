@@ -10,7 +10,7 @@
         <TextBox x:Name="inputBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="Eurot/markat" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.122,0.338"/>
         <Button x:Name="toEuroButton" Content="Muuta euroiksi" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="120" Click="toEuroButton_Click"/>
         <Button x:Name="toMarkkaButton" Content="Muuta markoiksi" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Width="120" Click="toMarkkaButton_Click"/>
-        <TextBlock x:Name="outputBlock" HorizontalAlignment="Left" Margin="143,31,0,0" TextWrapping="Wrap" Text="Tulos:" VerticalAlignment="Top" Height="35" Width="341" FontSize="25"/>
+        <TextBlock x:Name="outputBlock" HorizontalAlignment="Left" Margin="143,31,0,0" TextWrapping="Wrap" Text="Tulos:" VerticalAlignment="Top" Height="164" Width="364" FontSize="25"/>
 
     </Grid>
 </Window>

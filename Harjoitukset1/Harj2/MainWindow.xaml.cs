@@ -20,7 +20,7 @@ namespace Harj2
     /// </summary>
     public partial class MainWindow : Window
     {
-        double value;
+        double myValue;
         double input;
         double convertRate = 5.94573;
         string output;
@@ -28,21 +28,34 @@ namespace Harj2
         {
             InitializeComponent();
         }
-
         private void toEuroButton_Click(object sender, RoutedEventArgs e)
         {
-            input = double.Parse(inputBox.Text);
-            value = input / convertRate;
-            output = value.ToString("0.00");
-            outputBlock.Text = "Tulos: " + output + " euroa";
+            try
+            {
+                input = double.Parse(inputBox.Text);
+                myValue = input / convertRate;
+                output = myValue.ToString("0.00");
+                outputBlock.Text = "Tulos: " + output + " euroa";
+            }
+            catch (Exception ex)
+            {
+                outputBlock.Text = ex.Message + "\n-Annoithan mitat numeroina(mm)?";
+            }
         }
 
         private void toMarkkaButton_Click(object sender, RoutedEventArgs e)
         {
-            input = double.Parse(inputBox.Text);
-            value = convertRate * input;
-            output = value.ToString("0.00");
-            outputBlock.Text = "Tulos: " + output + " markkaa";
+            try
+            {
+                input = double.Parse(inputBox.Text);
+                myValue = convertRate * input;
+                output = myValue.ToString("0.00");
+                outputBlock.Text = "Tulos: " + output + " markkaa";
+            }
+            catch (Exception ex)
+            {
+                outputBlock.Text = ex.Message + "\n-Annoithan mitat numeroina(mm)?";
+            }
         }
     }
 }
