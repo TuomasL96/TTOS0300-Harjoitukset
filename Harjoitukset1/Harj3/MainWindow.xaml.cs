@@ -37,7 +37,7 @@ namespace Harj3
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Error.Text = ex.Message + "\n\nTapahtui jokin virhe!\n\nAnnoithan mitat numeroina(mm)?";
             }
         }
     }

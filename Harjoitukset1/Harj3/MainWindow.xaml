@@ -20,6 +20,7 @@
         <TextBox x:Name="outputIPA" HorizontalAlignment="Left" Height="23" Margin="387,196,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="outputLPA" HorizontalAlignment="Left" Height="23" Margin="387,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="outputKarmi" HorizontalAlignment="Left" Height="23" Margin="387,270,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="Error" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="281" Width="222" FontSize="20"/>
 
     </Grid>
 </Window>
