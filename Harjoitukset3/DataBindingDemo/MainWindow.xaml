@@ -18,10 +18,10 @@
     </Window.Resources>
     <Grid>
         <StackPanel HorizontalAlignment="Left" Width="137" Background="#FF00FF46">
-            <TextBlock Text="Binding to element"/>
-            <TextBox x:Name="txtTouch" Text="Touch me!" Margin="16,0" Height="22"/>
-            <TextBlock x:Name="txbTouch" Text="{Binding ElementName=txtTouch, Path=Text}"/>
-            <TextBlock x:Name="txbValue" Text="{Binding ElementName=txtTouch, Path=Text.Length}"/>
+            <TextBlock Text="Binding to element" Margin="10,0,0,0"/>
+            <TextBox x:Name="txtTouch" Text="Touch me!" Margin="10,0" Height="22"/>
+            <TextBlock x:Name="txbTouch" Text="{Binding ElementName=txtTouch, Path=Text}" Margin="10,0,0,0"/>
+            <TextBlock x:Name="txbValue" Text="{Binding ElementName=txtTouch, Path=Text.Length}" Margin="10,0,0,0"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" Margin="137,0,171,0" x:Name="spMiddle" Background="{Binding ElementName=cmbColors, Path=SelectedItem.Content, Mode=OneWay}" Width="284">
             <TextBlock x:Name="txtBindingStatic" Text="Binding to static resource" Margin="10,0,0,0" Height="23"/>
@@ -31,17 +31,33 @@
                 <ListBoxItem Content="Green"/>
                 <ListBoxItem Content="Yellow"/>
             </ComboBox>
+            
             <Separator Height="15" Background="Blue" BorderThickness="0"/>
             <TextBlock Text="{Binding Source={StaticResource MyAppName}}" Margin="10,0" TextAlignment="Center" Foreground="Blue" FontSize="18"/>
+            
             <Separator Height="15" Background="Blue" BorderThickness="0"/>
             <TextBlock Text="Valitse suosikkibändisi" Margin="10,0" Height="21"/>
             <ComboBox x:Name="cmdBands" ItemsSource="{Binding Source={StaticResource myBands}}" Margin="10,0" Height="27"/>
+            
             <Separator Height="15" Background="Blue" BorderThickness="0"/>
             <TextBlock Text="Comboboxin täyttäminen koodista" Height="23" Margin="10,0,0,0"/>
             <ComboBox x:Name="cmbMovies" Margin="10,0" Height="27"/>
+            
+            <Separator Height="15" Background="Blue" BorderThickness="0"/>
+            <TextBlock Text="Valitse suosikkijoukkueesi" Height="23" Margin="10,0,0,0"/>
+            <ComboBox x:Name="cmbTeam" Margin="10,0" Height="27"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Right" Background="#FF00FFDC" RenderTransformOrigin="0.5,0.5" Width="171">
-            <TextBlock x:Name="txtBindingCollection" Text="Binding to collection"/>
+        <StackPanel x:Name="spRight"  HorizontalAlignment="Right" Background="#FF00FFDC" RenderTransformOrigin="0.5,0.5" Width="171">
+            <TextBlock x:Name="txtBindingCollection" Text="Binding to collection" Margin="10,0" Height="21"/>
+            <Button x:Name="btnBind" Content="Sido olio-kokoelmaan" Margin="10,0" Click="btnBind_Click"/>
+            
+            <Separator Height="15" Background="Blue" BorderThickness="0"/>
+            <TextBox x:Name="txtName" Text="{Binding Path=Name}" Margin="10,0" Height="26"/>
+            <TextBox x:Name="txtCity" Text="{Binding Path=City}" Margin="10,0" Height="26"/>
+            
+            <Separator Height="15" Background="Blue" BorderThickness="0"/>
+            <Button x:Name="btnForward" Content="Seuraava" Margin="10,0" Click="btnForward_Click"/>
+            <Button x:Name="btnBackward" Content="Edellinen" Margin="10,0" Click="btnBackward_Click"/>
         </StackPanel>
     </Grid>
 </Window>

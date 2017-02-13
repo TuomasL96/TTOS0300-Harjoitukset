@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel; // for observableobject
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using JAMK.ICT;
 
 namespace DataBindingDemo
 {
@@ -20,6 +22,11 @@ namespace DataBindingDemo
     /// </summary>
     public partial class MainWindow : Window
     {
+        //koska useampi metodi-tapahtumankäsittelijä tulee käyttämään näitä muuttujia -->
+        // määritellään luokan tasolle jäsenmuuttujiksi
+        JAMK.ICT.HockeyLeague liiga = new JAMK.ICT.HockeyLeague();
+        ObservableCollection<JAMK.ICT.HockeyTeam> joukkueet;
+        int counter = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -34,6 +41,34 @@ namespace DataBindingDemo
             muuvit.Add("Star Wars");
             muuvit.Add("Pahat pojat");
             cmbMovies.ItemsSource = muuvit;
+            // haetaan smliiga-joukkueet classista
+            liiga = new JAMK.ICT.HockeyLeague();
+            joukkueet = liiga.GetTeams();
+            cmbTeam.ItemsSource = joukkueet;
+        }
+
+        private void btnBind_Click(object sender, RoutedEventArgs e)
+        {
+            //määritellään stackpaneelin datacontext
+            //Demo01: datakonteksti on olio
+            //HockeyTeam tiimi = new JAMK.ICT.HockeyTeam("TuoTeam", "Leppävirta");
+            //spRight.DataContext = tiimi;
+            //demo02 kytketään olio-kokoelma 1. olioon
+            spRight.DataContext = joukkueet[counter];
+        }
+
+        private void btnForward_Click(object sender, RoutedEventArgs e)
+        {
+            counter++;
+        }
+
+        private void btnBackward_Click(object sender, RoutedEventArgs e)
+        {
+            if (counter > 0) { counter--; }
+            else
+            {
+                counter = 0;
+            }
         }
     }
 }
