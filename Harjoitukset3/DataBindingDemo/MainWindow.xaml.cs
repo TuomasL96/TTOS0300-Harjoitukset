@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace DataBindingDemo
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+            InitMyStuff();
+        }
+        private void InitMyStuff()
+        {
+            //tänne kootusti omien kontrollien alustukset
+            List<String> muuvit = new List<string>();
+            muuvit.Add("Halloween");
+            muuvit.Add("Jaws");
+            muuvit.Add("Star Wars");
+            muuvit.Add("Pahat pojat");
+            cmbMovies.ItemsSource = muuvit;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+﻿<Window x:Class="DataBindingDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataBindingDemo"
+        mc:Ignorable="d"
+        Title="BindingDemo" Height="350" Width="600">
+    <Window.Resources>
+        <sys:String x:Key="MyAppName">Tuomaksen sovellus v0.1</sys:String>
+        <x:Array x:Key="myBands" Type="sys:String">
+            <sys:String>AC DC</sys:String>
+            <sys:String>Whitesnake</sys:String>
+            <sys:String>Rolling Stones</sys:String>
+            <sys:String>The Eagles</sys:String>
+        </x:Array>
+    </Window.Resources>
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Width="137" Background="#FF00FF46">
+            <TextBlock Text="Binding to element"/>
+            <TextBox x:Name="txtTouch" Text="Touch me!" Margin="16,0" Height="22"/>
+            <TextBlock x:Name="txbTouch" Text="{Binding ElementName=txtTouch, Path=Text}"/>
+            <TextBlock x:Name="txbValue" Text="{Binding ElementName=txtTouch, Path=Text.Length}"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" Margin="137,0,171,0" x:Name="spMiddle" Background="{Binding ElementName=cmbColors, Path=SelectedItem.Content, Mode=OneWay}" Width="284">
+            <TextBlock x:Name="txtBindingStatic" Text="Binding to static resource" Margin="10,0,0,0" Height="23"/>
+            <ComboBox x:Name="cmbColors" Margin="10,0">
+                <ListBoxItem Content="Azure"/>
+                <ListBoxItem Content="Blue"/>
+                <ListBoxItem Content="Green"/>
+                <ListBoxItem Content="Yellow"/>
+            </ComboBox>
+            <Separator Height="15" Background="Blue" BorderThickness="0"/>
+            <TextBlock Text="{Binding Source={StaticResource MyAppName}}" Margin="10,0" TextAlignment="Center" Foreground="Blue" FontSize="18"/>
+            <Separator Height="15" Background="Blue" BorderThickness="0"/>
+            <TextBlock Text="Valitse suosikkibändisi" Margin="10,0" Height="21"/>
+            <ComboBox x:Name="cmdBands" ItemsSource="{Binding Source={StaticResource myBands}}" Margin="10,0" Height="27"/>
+            <Separator Height="15" Background="Blue" BorderThickness="0"/>
+            <TextBlock Text="Comboboxin täyttäminen koodista" Height="23" Margin="10,0,0,0"/>
+            <ComboBox x:Name="cmbMovies" Margin="10,0" Height="27"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right" Background="#FF00FFDC" RenderTransformOrigin="0.5,0.5" Width="171">
+            <TextBlock x:Name="txtBindingCollection" Text="Binding to collection"/>
+        </StackPanel>
+    </Grid>
+</Window>
