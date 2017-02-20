@@ -50,5 +50,9 @@ namespace JAMK.ICT
         {
             return teams;
         }
+        public void addTeam(string teamName, string city)
+        {
+            teams.Add(new HockeyTeam(teamName, city));
+        }
     }
 }

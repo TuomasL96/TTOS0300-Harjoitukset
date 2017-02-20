@@ -59,16 +59,25 @@ namespace DataBindingDemo
 
         private void btnForward_Click(object sender, RoutedEventArgs e)
         {
-            counter++;
+            if (counter < joukkueet.Count - 1)
+            {
+                counter++;
+            }
+            spRight.DataContext = joukkueet[counter];
         }
 
         private void btnBackward_Click(object sender, RoutedEventArgs e)
         {
-            if (counter > 0) { counter--; }
-            else
+            if (counter > 0)
             {
-                counter = 0;
+                counter--;
             }
+            spRight.DataContext = joukkueet[counter];
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            liiga.addTeam(txbName.Text, txbCity.Text);
         }
     }
 }
