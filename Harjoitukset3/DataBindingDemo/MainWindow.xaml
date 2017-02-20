@@ -61,8 +61,8 @@
 
             <Separator Height="15" Background="Blue" BorderThickness="0"/>
             <TextBlock Text="Uuden joukkueen lisäys" Margin="10,0" Height="22"/>
-            <TextBox x:Name="txbName" Text="" Margin="10,0" Height="26"/>
-            <TextBox x:Name="txbCity" Text="" Margin="10,0" Height="25"/>
+            <TextBox x:Name="txbName" Text="Nimi" Margin="10,0" Height="26"/>
+            <TextBox x:Name="txbCity" Text="Kaupunki" Margin="10,0" Height="26"/>
             <Button x:Name="btnAdd" Content="Lisää joukkue liigaan" Margin="10,10" Click="btnAdd_Click"/>
         </StackPanel>
     </Grid>
